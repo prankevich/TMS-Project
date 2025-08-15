@@ -27,7 +27,7 @@ func main() {
 	}
 	var p Printable = emp[0]
 	p.Print()
- fmt.Println(searchEmployee(emp,"Sveta"))
+	fmt.Println(searchEmployee(emp, "Sveta"))
 }
 
 func (e Employee) Info() string {
@@ -50,7 +50,7 @@ func (e Employee) Print() {
 }
 
 func searchEmployee(emp []Employee, name string) ([]Employee, error) {
-	resultSearch := []Employee
+	resultSearch := make([]Employee, 0)
 	for _, e := range emp {
 		if e.Name == name {
 			resultSearch = append(resultSearch, e)
