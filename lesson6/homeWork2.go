@@ -1,12 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Employee struct {
 	Name     string
 	Age      int
 	Position string
 	Salary   float64
+}
+type Printable interface {
+	Print()
 }
 
 func main() {
@@ -19,6 +25,9 @@ func main() {
 		sal[e.Position] = e.Salary
 		fmt.Println(sal["manager"])
 	}
+	var p Printable = emp[0]
+	p.Print()
+ fmt.Println(searchEmployee(emp,"Sveta"))
 }
 
 func (e Employee) Info() string {
@@ -34,5 +43,21 @@ func addingEmployee(emp []Employee, n string, a int, s float64, p string) []Empl
 		Position: p,
 	}
 	return append(emp, newEmp)
+
+}
+func (e Employee) Print() {
+	fmt.Println(e.Info())
+}
+
+func searchEmployee(emp []Employee, name string) ([]Employee, error) {
+	resultSearch := []Employee
+	for _, e := range emp {
+		if e.Name == name {
+			resultSearch = append(resultSearch, e)
+		} else {
+			return nil, errors.New("Нет имени ")
+		}
+	}
+	return resultSearch, nil
 
 }
