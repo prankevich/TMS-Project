@@ -25,7 +25,7 @@ func main() {
 		sal[e.Position] = e.Salary
 		fmt.Println(sal["manager"])
 	}
-	var p Printable = emp[0]
+	var p Printable = emp[1]
 	p.Print()
 	fmt.Println(searchEmployee(emp, "Sveta"))
 }

@@ -40,6 +40,17 @@ m["Alex"] = 29
 m["Svetlana"] = 25
 m["Nikita"] = 28
 fmt.Println(m)
+
+// Реализуйте функцию, которая подсчитывает количество вхождений каждого слова в срезе строк.
+func countWords(slice []string, name string) int {
+         var count int
+         for _, v := range slice3 {
+             if v == name {
+             count++
+			 }
+         }
+     return count
+}
 //Удалите ключ из карты и проверьте его наличие
 delete(m, "Alex")
 v, e := m["Alex"]
