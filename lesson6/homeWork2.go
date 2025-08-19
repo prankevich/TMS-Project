@@ -26,8 +26,8 @@ func main() {
 	emp = addingEmployee(emp, person2)
 	emp = addingEmployee(emp, person3)
 
-	avgmap := averageSalary(emp)
-	fmt.Println("Вывод обновленных данных о средней З/П по должности  :", avgmap["baker"])
+	avg := averageSalary(emp)
+	fmt.Println("Вывод обновленных данных о средней З/П по должности  :", avg["baker"])
 	fmt.Printf("Средний возраст  всех сотрудников: %2.f \n", averageAge(emp))
 	result, err := searchEmployee(emp, "Alex")
 	if err != nil {
@@ -41,7 +41,7 @@ func main() {
 }
 
 func (e Employee) Info() string {
-	return fmt.Sprintf("Имя:%-10s Возраст:%-3d Должность:%-10s Зарплата:%.2f", e.Name, e.Age, e.Position, e.Salary)
+	return fmt.Sprintf("Имя:%-5s Возраст:%-4d Должность:%-4s Зарплата:%.2f", e.Name, e.Age, e.Position, e.Salary)
 
 }
 func addingEmployee(emp []Employee, person Employee) []Employee {
