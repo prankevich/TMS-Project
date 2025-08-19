@@ -14,18 +14,20 @@ func main() {
 	wg.Wait()
 }
 func evenNumbers(wg *sync.WaitGroup) {
+	fmt.Println("Cписок четных чисел:")
 	for i := 0; i <= 10; i++ {
 		if i%2 == 0 {
-			fmt.Println("Cписок четных чисел:", i)
+			fmt.Println(i)
 		}
 	}
 	wg.Done()
 
 }
 func oddNumbers(wg *sync.WaitGroup) {
+	fmt.Println("Cписок нечетных чисел:")
 	for i := 1; i <= 9; i++ {
 		if i%2 != 0 {
-			fmt.Println("Cписок нечетных чисел:", i)
+			fmt.Println(i)
 		}
 	}
 	wg.Done()
