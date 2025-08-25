@@ -9,7 +9,6 @@ import (
 func main() {
 	var wg sync.WaitGroup
 
-	t := time.Now()
 	wg.Add(1)
 	go uploadedFile3(&wg)
 	wg.Add(1)
@@ -18,7 +17,7 @@ func main() {
 	go uploadedFile1(&wg)
 
 	wg.Wait()
-	fmt.Println(time.Since(t))
+
 }
 func uploadedFile1(wg *sync.WaitGroup) {
 	time.Sleep(1 * time.Second)
