@@ -13,7 +13,7 @@ type User struct {
 
 func main() {
 	user, err := load("C:\\Users\\dell\\GolandProjects\\TMS-Project1\\lesson10\\users.json")
-	if err != nil || user == nil {
+	if err != nil {
 		fmt.Println("Ошибка загрузки файла :", err)
 		return
 	}

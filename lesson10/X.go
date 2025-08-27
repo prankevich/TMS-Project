@@ -17,14 +17,18 @@ type Library struct {
 func main() {
 	data, err := os.ReadFile("C:\\Users\\dell\\GolandProjects\\TMS-Project1\\lesson10\\books.xml")
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Ошибка чтения файла")
+		return
 	}
 	var v Library
-	xml.Unmarshal(data, &v)
+	if err := xml.Unmarshal(data, &v); err != nil {
+		fmt.Println("Ошибка чтения XML", err)
+		return
+	}
+	for i := range v.Books {
+		v.Books[i].Year++
+		fmt.Printf("Год: %d, Наименование: %s\n", v.Books[i].Year, v.Books[i].Title)
 
-	for _, v := range v.Books {
-		v.Year = v.Year + 1
-		fmt.Println("Год:", v.Year, v.Title)
 	}
 
 }
