@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )
@@ -16,7 +17,7 @@ func main() {
 	r.POST("/divide", divide)
 	err := r.Run(":8181")
 	if err != nil {
-		panic(err)
+		fmt.Println("Ошибка запуска")
 	}
 
 }
